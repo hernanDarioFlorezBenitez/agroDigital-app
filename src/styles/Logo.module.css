@@ -1,0 +1,26 @@
+.logoContainer {
+  display: flex;
+  align-items: start;
+  gap: 10px;
+  cursor: pointer;
+  width: fit-content;
+  margin: 0px 50px;
+}
+
+.logoText {
+  font-weight: 800; /* Font-extrabold */
+  color: #065f46; /* Emerald-950 */
+  line-height: 1; /* Leading-none */
+  font-size: 1.25rem; /* Text-xl */
+  letter-spacing: -0.05em; /* Tracking-tighter */
+}
+.logoText span {
+  color: #a3e635; /* Manzana-dark */
+}
+.logoSubtitle {
+  font-size: 0.625rem; /* Text-[10px] */
+  font-weight: 900; /* Font-black */
+  color: #16a34a; /* Emerald-600 */
+  text-transform: uppercase;
+  letter-spacing: 0.1em; /* Tracking-widest */
+}
