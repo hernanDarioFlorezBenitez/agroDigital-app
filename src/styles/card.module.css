@@ -1,27 +1,27 @@
-
+/* 1. EL CONTENEDOR DE LA CARD (Añadimos margen para dar espacio a la sombra) */
 .product-card {
   background-color: #ffffff;
   border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6); 
   overflow: hidden;
   max-width: 300px;
   width: 100%;
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease; 
   font-family: system-ui, -apple-system, sans-serif;
-  border: 1px solid #edf2f7;
+  border: 2px solid #689f38;   
+  margin: 12px; 
 }
 
 .product-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  border-color: #ff9b04fa; 
+  box-shadow: -6px 8px 12px rgba(255, 155, 4, 0.3); 
 }
-
 .media-container {
   position: relative;
   width: 100%;
-  padding-top: 75%; /* Proporción de aspecto 4:3 */
+  padding-top: 75%; 
   background-color: #f8f9fa;
 }
 
@@ -33,25 +33,54 @@
   height: 100%;
   object-fit: cover;
 }
+/* TAREA 3: CONTROL Y SINCRONIZACIÓN DEL ICONO DEL CARRITO LOCAL */
+.cart-icon {
+  width: 20px;
+  height: 20px;
+  margin-left: 8px;
+  
+  /* Por defecto, forzamos a que el icono cargue en blanco puro */
+  filter: brightness(0) invert(1); 
+  
+  /* Transición suave para que acompañe el destello del botón */
+  transition: transform 0.2s ease, filter 0.2s ease; 
+}
+
+/* EFECTO INTERACTIVO: Cuando el usuario pasa el mouse sobre el botón, 
+   el icono reacciona sutilmente */
+.buy-button:hover .cart-icon {
+  /* Mantiene el blanco puro brillante */
+  filter: brightness(0) invert(1) drop-shadow(0 0 2px rgba(255, 255, 255, 0.6)); 
+  
+  /* Pequeño impulso visual: crece un 5% simulando que el carrito se mueve */
+  transform: scale(1.08); 
+}
 
 .badge {
   position: absolute;
   top: 12px;
   left: 12px;
   z-index: 5;
-  padding: 4px 12px;
+  padding: 6px 14px;
   border-radius: 20px;
   font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  border: 2px solid #7cb342;
+  background-color: #ffffff;
+  color: #7cb342;            
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); 
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
 }
 
-.fruver {
-  background-color: #e8f5e9;
-  color: #2e7d32;
+.badge:hover {
+  background-color: #f7fafc;
+  transform: scale(1.05); /* Efecto sutil de pulsado */
 }
 
+/* 4. CONTENIDO Y AGRUPACIÓN */
 .content {
   padding: 20px;
   display: flex;
@@ -68,62 +97,92 @@
   line-height: 1.4;
 }
 
+/* 5. SELECTORES E INPUTS */
 .select-wrapper {
   position: relative;
   width: 100%;
 }
 
+/* TAREA 1: SELECTOR ENMARCADO E ILUMINADO */
 .select-input {
   width: 100%;
   padding: 10px 14px;
-  font-size: 0.95rem;
-  color: #4a5568;
-  background-color: #f7fafc;
-  border: 1px solid #e2e8f0;
+  background-color: #ffffff;    /* Fondo blanco limpio */
+  
+  /* 1. Borde inicial verde manzana de AgroDigital */
+  border: 2px solid #7cb342;    
   border-radius: 8px;
-  appearance: none; /* Quita la flecha fea por defecto del navegador */
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://w3.org' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%234a5568' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 12px center;
-  background-size: 16px;
   cursor: pointer;
-  transition: border-color 0.2s;
+  appearance: none;
+  
+  /* Estilos de texto que ya tenías */
+  font-size: 0.75rem;          
+  font-weight: 700;             
+  font-style: italic;           
+  color: #7cb342;               
+  text-align: center;           
+  
+  /* Transición suave para que la iluminación no sea brusca */
+  transition: box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
 }
 
+/* 2. Efecto al posar el cursor: Resplandor completo de 10px alrededor con rgba */
+.select-input:hover {
+  border-color: #689f38;        /* El borde se oscurece un toque para dar contraste */
+  background-color: #f0fdf4;    /* Un fondo verde agua súper sutil */
+  
+  /* Sombra simétrica en los 4 lados (0 en X, 0 en Y) con 10px de difuminado verde */
+  box-shadow: 0 0 10px rgba(124, 179, 66, 0.5); 
+}
+
+/* Mantener la iluminación si el usuario hace clic y despliega */
 .select-input:focus {
   outline: none;
-  border-color: #7cb342;
+  border-color: #689f38;
+  box-shadow: 0 0 10px rgba(124, 179, 66, 0.6);
 }
 
+
+
+/* 6. BOTÓN COMPRAR (Alineación corregida para el texto y el carrito) */
+/* TAREA 2: BOTÓN DE COMPRA CON ANIMACIÓN CORREGIDA E ILUMINACIÓN */
 .buy-button {
   width: 100%;
   padding: 12px;
-  background-color: #7cb342; /* Verde AgroDigital */
+  background-color: #7cb342; /* Verde AgroDigital original en reposo */
   color: #ffffff;
   border: none;
   border-radius: 8px;
   font-size: 0.95rem;
   font-weight: 700;
   cursor: pointer;
-  transition: background-color 0.2s ease;
   letter-spacing: 0.5px;
   text-transform: uppercase;
+  display: flex;         
+  align-items: center;
+  justify-content: center;
+  
+  /* Transición suave para el color de fondo y la sombra de iluminación */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
+
+/* EL BOTÓN SE ILUMINA HACIA UN VERDE MÁS BRILLANTE Y ENCIENDE SU RESPLANDOR */
 .buy-button:hover {
-  background-color: #689f38;
+  background-color: #9ccc65 !important; /* Un verde manzana más claro, vivo y "encendido" */
+  opacity: 1 !important;
+  filter: none !important;
+  
+  /* Incrementamos el resplandor alrededor a 14px para acompañar el destello */
+  box-shadow: 0 0 14px rgba(156, 204, 101, 0.8) !important; 
 }
+
+
+
 
 .material-symbols-outlined {
   font-variation-settings:
   'FILL' 0,
   'wght' 400,
   'GRAD' 0,
-  'opsz' 24
-}
-.description {
-  margin: 0;
-  font-size: 0.88rem;
-  color: #718096; /* Un gris suave muy elegante */
-  line-height: 1.4;
-  text-align: left;
+  'opsz' 24;
 }
