@@ -1,38 +1,70 @@
+/* ==========================================================================
+   CONTENEDOR PRINCIPAL DEL HEADER (CORREGIDO Y CENTRADO)
+   ========================================================================== */
 nav {
-  box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15); /* Una sombra un poco más suave y moderna */
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  margin: 20px 50px;
-  padding: 10px 20px;
-  height: 80px;
+  align-items: center; /* Centra verticalmente logo, menú y carrito de forma exacta */
+  flex-wrap: nowrap;   /* Evita que los elementos se rompan hacia abajo en pantallas medianas */
+  
+  /* El margen izquierdo de 50px ahora se aplica uniformemente aquí */
+  margin: 15px 20px; 
+  padding: 15px 30px;  /* Le damos "aire" interno arriba y abajo */
+  
+  /* ELIMINADO height: 80px; -> Dejamos que el contenedor se adapte de forma fluida al logo de 90px */
+  min-height: 90px;
+  background-color: #ffffff;
+  border-radius: 12px; /* Opcional: le da un toque limpio si es flotante */
 }
 
+/* ==========================================================================
+   MENÚ DE LISTA (ENLACES DE CATÁLOGO)
+   ========================================================================== */
 nav ul {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 25px;           /* Aumentamos la separación entre opciones para que no se amontonen */
   list-style: none;
-  margin: 0;
+  margin: 0 auto;      /* MAGIA: Esto empuja de forma automática todo el menú al centro exacto */
   padding: 0;
 }
 
 nav li {
-  margin: 0 10px;
-}
-nav a {
-  text-decoration: none;
-  color: #000;
-  font-weight: bold;
-  transition: color 0.3s ease;
-  font-size: 25px;
+  margin: 0;           /* Dejamos que el gap del ul controle de forma limpia la distancia */
 }
 
-nav a:hover {
-  color: #3b07b3;
+/* ==========================================================================
+   ENLACES Y EFECTO DE BRILLO NARANJA
+   ========================================================================== */
+nav a {
+  text-decoration: none;
+  color: #000000;
+  font-weight: bold;
+  font-size: 24px;     /* Ajustado sutilmente a 24px para balancear la proporción */
+  
+  /* Transición fluida para que los cambios de color y sombra se desvanezcan con suavidad */
+  transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.2s ease;
+  display: inline-block;
 }
+
+/* Cambiado de color morado a NARANJA CON GLOW al pasar el mouse */
+nav a:hover {
+  color: #1d04fffa !important;
+  
+  /* EFECTO GLOW NARANJA: Silueta iluminada idéntica a tu tarjeta de productos */
+  text-shadow: 
+    0 0 8px rgba(255, 155, 4, 0.1),  
+    0 0 15px rgba(255, 155, 4, 0.05);
+    
+  transform: translateY(-1px); /* Pequeño micro-movimiento interactivo hacia arriba */
+}
+
+/* Asegura que la pestaña activa también mantenga el resplandor naranja encendido */
 nav a.active {
-  color: #ff9b04fa;
+  color: #ff9b04fa !important;
+  text-shadow: 
+    0 0 8px rgba(255, 155, 4, 0.5),  
+    0 0 12px rgba(255, 155, 4, 0.2);
 }

@@ -14,15 +14,12 @@
   margin: 12px; 
 }
 
-.product-card:hover {
-  border-color: #ff9b04fa; 
-  box-shadow: -6px 8px 12px rgba(255, 155, 4, 0.3); 
-}
+
 .media-container {
   position: relative;
   width: 100%;
   padding-top: 75%; 
-  background-color: #f8f9fa;
+  background-color: #ffffff;
 }
 
 .image {
@@ -76,7 +73,7 @@
 }
 
 .badge:hover {
-  background-color: #f7fafc;
+  background-color: #ffffff;
   transform: scale(1.05); /* Efecto sutil de pulsado */
 }
 
@@ -129,11 +126,12 @@
 /* 2. Efecto al posar el cursor: Resplandor completo de 10px alrededor con rgba */
 .select-input:hover {
   border-color: #689f38;        /* El borde se oscurece un toque para dar contraste */
-  background-color: #f0fdf4;    /* Un fondo verde agua súper sutil */
+  background-color: #ffffff;    /* Un fondo verde agua súper sutil */
   
   /* Sombra simétrica en los 4 lados (0 en X, 0 en Y) con 10px de difuminado verde */
   box-shadow: 0 0 10px rgba(124, 179, 66, 0.5); 
 }
+
 
 /* Mantener la iluminación si el usuario hace clic y despliega */
 .select-input:focus {
@@ -173,10 +171,8 @@
   filter: none !important;
   
   /* Incrementamos el resplandor alrededor a 14px para acompañar el destello */
-  box-shadow: 0 0 14px rgba(156, 204, 101, 0.8) !important; 
+  box-shadow: 0 0 14px rgba(156, 204, 101, 0.8) ; 
 }
-
-
 
 
 .material-symbols-outlined {

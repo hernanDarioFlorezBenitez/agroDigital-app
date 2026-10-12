@@ -1,14 +1,19 @@
+/* ==========================================================================
+   CONTENEDOR DEL CARRITO DE COMPRAS DE LA CABECERA (CORREGIDO EN VERDE)
+   ========================================================================== */
+
 .carrito-boton {
   position: relative;
   display: inline-block;
 }
+
 .cartCounter {
   position: absolute;
   top: -0.5rem;
   right: -0.5rem;
   width: 1.5rem;
   height: 1.5rem;
-  background-color: #065f46;
+  background-color: #7cb342;
   color: white;
   font-size: 10px;
   font-weight: 900;
@@ -17,23 +22,50 @@
   align-items: center;
   justify-content: center;
   border: 2px solid white;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 15px -3px rgba(156, 204, 101, 0.8); 
+  z-index: 10; /* Asegura que el contador flote sobre el brillo */
 }
 
+/* El botón en reposo */
 .containerSvg {
   position: relative;
   width: 3rem;
   height: 3rem;
-  background-color: #f7fee7;
+  background-color: #ffffff; 
+  border: 2px solid #7cb342;    
   border-radius: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #064e3b;
-  transition: all 0.2s ease;
+  color: #7cb342;             
+  
+  /* Ajustamos la transición para que incluya todos los cambios de color y brillo */
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease, filter 0.3s ease;
   cursor: pointer;
 }
 
+/* EFECTO HOVER: Iluminación verde sincronizada para el contenedor y el canasto interno */
 .containerSvg:hover {
-  background-color: #065f46;
+  background-color: #ffffff;             
+  border-color: #7cb342;               
+  color: #7cb342;                      
+  
+  /* Brillo exterior del contenedor idéntico al de tu tarjeta */
+  box-shadow: -6px 8px 12px rgba(156, 204, 101, 0.3); 
+
+  /* 1. SI USAS MATERIAL SYMBOLS (Icono de texto): Hace brillar el canasto */
+  text-shadow: 0 0 8px rgba(156, 204, 101, 0.8);
+
+  /* 2. SI USAS SVG O IMAGEN: Aplica el resplandor verde directo sobre las líneas del canasto */
+  filter: drop-shadow(0 0 6px rgba(156, 204, 101, 0.9)); 
+}
+
+/* Si usas SVG, nos aseguramos de que herede el color y se anime de forma fluida */
+.containerSvg svg {
+  transition: filter 0.3s ease, stroke 0.3s ease;
+}
+
+.containerSvg:hover svg {
+  stroke: #7cb342;
+  fill: none; 
 }

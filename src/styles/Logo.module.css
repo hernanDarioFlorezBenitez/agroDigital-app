@@ -1,26 +1,50 @@
+/* ==========================================================================
+   CONTENEDOR DEL LOGO (CORREGIDO PARA ALINEACIÓN SIMÉTRICA)
+   ========================================================================== */
+
 .logoContainer {
   display: flex;
-  align-items: start;
+  align-items: center; /* Centra verticalmente el bloque de texto al lado de la hoja */
   gap: 10px;
   cursor: pointer;
   width: fit-content;
-  margin: 0px 50px;
+  
+  /* LA SOLUCIÓN: Cambiamos '0px 50px' a '0' para que el logo se mueva a la izquierda */
+  margin: 0 !important; 
+  padding: 0 !important;
+}
+
+/* NUEVA CLASE: Agrupa y centra los textos horizontalmente entre sí */
+.logoTextGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;    /* Centra el subtítulo respecto al título */
+  text-align: center;
 }
 
 .logoText {
-  font-weight: 800; /* Font-extrabold */
+  font-weight: 800; 
   color: #065f46; /* Emerald-950 */
-  line-height: 1; /* Leading-none */
-  font-size: 1.25rem; /* Text-xl */
-  letter-spacing: -0.05em; /* Tracking-tighter */
+  line-height: 1; 
+  font-size: 1.5rem; 
+  letter-spacing: -0.05em; 
+  margin: 0;             /* Quita márgenes invisibles por defecto del h1 */
 }
+
 .logoText span {
   color: #a3e635; /* Manzana-dark */
 }
+
 .logoSubtitle {
-  font-size: 0.625rem; /* Text-[10px] */
-  font-weight: 900; /* Font-black */
+  font-size: 0.625rem; 
+  font-weight: 900; 
   color: #16a34a; /* Emerald-600 */
-  text-transform: uppercase;
-  letter-spacing: 0.1em; /* Tracking-widest */
+  letter-spacing: 0.1em; 
+  margin-top: 4px;       /* Controla la distancia exacta con el título */
+  display: block;        /* Asegura que respete el ancho y el centrado */
+}
+
+.logoImage {
+  width: 90px;
+  height: 90px;
 }
