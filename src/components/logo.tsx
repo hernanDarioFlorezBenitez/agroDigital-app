@@ -4,7 +4,7 @@ const Logo = () => {
     <div className={logoStyles.logoContainer}>
       
       <div className={logoStyles.logoIcon}>
-        <img src="../src/assets/icon/logo.jpg" alt="Logo" className={logoStyles.logoImage} />
+        <img src="../src/assets/icon/logo.png" alt="Logo" className={logoStyles.logoImage} />
       </div>
       
       <div className={logoStyles.logoTextGroup}>
